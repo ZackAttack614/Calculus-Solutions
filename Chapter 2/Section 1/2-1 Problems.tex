@@ -1,0 +1,189 @@
+\documentclass{article}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{empheq}
+\usepackage[most]{tcolorbox}
+
+\graphicspath{ {./images/} }
+
+\title{Solutions to Selected Problems in §2.1\par
+Limits, Rates of Change, and Tangent Lines}
+% \date{November 27, 2021}
+% \author{Zack}
+\begin{document}
+  \pagenumbering{gobble}
+  \maketitle
+  \newpage
+  \pagenumbering{arabic}
+
+  \section{Problem 1}
+  \paragraph{Setup} A ball is dropped from a state of rest at time \( t = 0 \). The distance traveled after \( t \) seconds is \( s(t) = 16t^2 \) ft.
+  \begin{enumerate}[(a)]
+    \item \textbf{How far does the ball travel during the time interval [2, 2.5]?}
+
+    \paragraph{Solution} To find how far the ball traveled in the interval, we simply find the difference in \(s\) at the beginning and end times.
+
+    \begin{equation} \label{ballDistance1}
+      \Delta{s} = s_{2} - s_{1} = s(2.5) - s(2) = 100 - 64 = \boxed{36 ft}
+    \end{equation}
+
+    \item \textbf{Compute the average velocity over [2, 2.5].}
+
+    \paragraph{Solution} To find the average velocity of the ball, we find the slope of the secant line through \((2, s(2)) \) and \( (2.5, s(2.5)) \).
+
+    \begin{equation}
+      \overline{v} = \frac{\Delta{s}}{\Delta{t}} = \frac{s_{2} - s_{1}}{t_{2} - t_{1}} = \frac{s(2.5) - s(2)}{2.5 - 2} = \frac{100 - 64}{0.5} = \frac{36}{0.5} = \boxed{72 \frac{ft}{s}}
+    \end{equation}
+    \item \textbf{Compute the average velocity over time intervals [2, 2.01], [2, 2.001], [2, 2.00001]. Use this to estimate the object's instantaneous velocity at \( t = 2 \).}
+    \paragraph{Solution} The average velocities at the given time intervals are as follow\dots
+    \begin{center}
+      \begin{tabular}{||c c c c | c||}
+       \hline
+       \(t_{1}\) & \(s(t_{1})\) & \(t_{2}\) & \(s(t_{2})\) & \(\overline{v}\) \\
+       \hline\hline
+       2 s. & 64 ft. & 2.01 s. & 64.6416 ft. & 64.16 ft/s \\
+       \hline
+       2 s. & 64 ft. & 2.001 s. & 64.064016 ft. & 64.016 ft/s \\
+       \hline
+       2 s. & 64 ft. & 2.00001 s. & 64.0006400016 ft. & 64.00016 ft/s \\
+       \hline
+      \end{tabular}
+    \end{center}
+
+    As \( t_{2} \) approaches the value of \( t_{1} \), we see the average velocity approach \(64 \frac{ft}{s}\). Therefore\dots
+
+    \begin{equation}
+      \boxed{v(2) \approx 64 \frac{ft}{s}}
+    \end{equation}
+  \end{enumerate}
+  \newpage
+
+  \section{Problem 2}
+  \paragraph{Problem Statement}
+  A wrench is released from a state of rest at time \(t=0\). Estimate the wrench's instantaneous velocity at \(t=1\), assuming that the distance traveled after \(t\) seconds is \(s(t)=16t^2\).
+
+  \paragraph{Solution}
+  To estimate the instantaneous velocity, we simply find the slope of a secant line going through \((1, s(1)) \) and \( (1 + \varepsilon, s(1 + \varepsilon)) \) for some sufficiently small \(\varepsilon\). I'll choose \(\varepsilon = 0.001\).
+
+  \begin{equation}
+    v \approx \frac{\Delta{s}}{\Delta{t}} = \frac{s(1 + \varepsilon) - s(1)}{(1 + \varepsilon) - 1} = \frac{16(1.001)^2 - 16(1)^2}{0.001} = \boxed{32.016 \frac{ft}{s}}
+  \end{equation}
+
+  \section{Problem 3}
+  \paragraph{Problem Statement} Let \(v=20\sqrt{T}\), as in Example 2. Estimate the instantaneous ROC of \(v\) with respect to \(T\) when \(T=300 K\).
+
+  \paragraph{Solution}
+  To estimate the instantaneous ROC of \(v\), we simply find the slope of a secant line going through \((300, v(300)) \) and \( (300 + \varepsilon, v(300 + \varepsilon)) \) for some sufficiently small \(\varepsilon\). I'll choose \(\varepsilon = 0.001\).
+
+  \begin{equation}
+    \frac{\Delta{v}}{\Delta{T}} = \frac{v(300+\varepsilon) - v(300)}{(300 + \varepsilon) - 300} = \frac{20\sqrt{300.001} - 20\sqrt{300}}{0.001} = \boxed{0.577}
+  \end{equation}
+
+  \section{Problem 4}
+  \paragraph{Problem Statement} Compute \(\frac{\Delta{y}}{\Delta{x}}\) for the interval [2, 5], where \(y=4x - 9\). What is the instantaneous ROC of \(y\) with respect to \(x\) at \(x=2\)?
+
+  \paragraph{Solution} The average rate of change over the interval [2, 5] is simply the slope of the secant line going through \((2, y(2)) \) and \( (5, y(5)) \).
+
+  \begin{equation}
+    \frac{\Delta{y}}{\Delta{x}} = \frac{y(5) - y(2)}{5 - 2} = \frac{(4(5) - 9) - (4(2) - 9)}{3} = \frac{12}{3} = \boxed{4}
+  \end{equation}
+
+  To estimate the instantaneous rate of change of \(y\) at \(x=2\), we'll find the slope of the secant line going through \((2, y(2)) \) and \( (2 + \varepsilon, y(2 + \varepsilon)) \) for some sufficiently small \(\varepsilon\). I'll choose \(\varepsilon = 0.001\).
+
+  \begin{equation}
+    \frac{\Delta{y}}{\Delta{x}} = \frac{y(2 + \varepsilon) - y(2)}{(2 + \varepsilon) - 2} = \frac{(4(2 + \varepsilon) - 9) - (4(2) - 9)}{\varepsilon} = \frac{8.004 - 8}{0.001} = \boxed{4}
+  \end{equation}
+
+  \newpage
+  \section{Problems 5 and 6}
+  \paragraph{Setup} A stone is tossed in the air from ground level with an initial velocity of 15 m/s. Its height at time \(t\) is \(h(t) = 15t - 4.9t^2\) m.
+  \paragraph{Problem 5 Statement} Compute the stone's average velocity over the time interval [0.5, 2.5] and indicate the corresponding secant line on a sketch of the graph of \(h(t)\).
+
+  \paragraph{Solution} The average rate of change over the interval [0.5, 2.5] is simply the slope of the secant line going through \((0.5, h(0.5)) \) and \( (2.5, h(2.5)) \).
+
+  \begin{equation}
+    \frac{\Delta{h}}{\Delta{t}} = \frac{y(2.5) - y(0.5)}{2.5 - 0.5} = \frac{(15(2.5) - 4.9(2.5)^2) - (15(0.5) - 4.9(0.5)^2)}{2} = \boxed{0.3}
+  \end{equation}
+
+  \includegraphics[scale=0.7]{problem_5}
+
+  \newpage
+  \paragraph{Problem 6 Statement} Compute the stone's average velocity over the time intervals [1, 1.01], [1, 1.001], [1, 1.0001] and [0.99, 1], [0.999, 1], [0.9999, 1]. Use this to estimate the instantaneous velocity at \(t=1\).
+
+  \paragraph{Solution} The table below shows the average velocities over the given intervals\dots
+  \begin{center}
+    \begin{tabular}{||c c c c | c||}
+     \hline
+     \(t_{1}\) & \(h(t_{1})\) & \(t_{2}\) & \(h(t_{2})\) & \(\overline{v}\) \\
+     \hline\hline
+     1 s & 10.1 m & 1.01 s & 10.35351 m & 5.151 m/s \\
+     \hline
+     1 s & 10.1 m & 1.001 s & 10.1051951 m & 5.1951 m/s \\
+     \hline
+     1 s & 10.1 m & 1.0001 s & 10.100519951 m & 5.19951 m/s \\
+     \hline
+     0.99 s & 10.04751 m & 1 s & 10.1 m & 5.249 m/s \\
+     \hline
+     0.999 s & 10.0947951 m & 1 s & 10.1 m & 5.2049 m/s \\
+     \hline
+     0.9999 s & 10.099479951 m & 1 s & 10.1 m & 5.20049 m/s \\
+     \hline
+    \end{tabular}
+  \end{center}
+
+  Clearly, as we get closer to \(t_{2} = t_{1}\), we are approaching the value of the instantaneous velocity\dots
+  \begin{equation}
+    \boxed{\overline{v} = 5.2 m/s}
+  \end{equation}
+  \newpage
+
+  \section{Problem 7}
+  \paragraph{Setup} With an initial deposit of \$100, the balance in a bank account after \(t\) years is \(f(t) = 100(1.08)^t\) dollars.
+
+  \begin{enumerate}[(a)]
+    \item \textbf{What are the units of the ROC of \(f(t)\)?}
+    \paragraph{Solution} The rate of change is \(\frac{\Delta{f}}{\Delta{t}}\), where \([\Delta{f}] = \$\) and \([\Delta{t}] = yr\). Therefore\dots
+  
+    \begin{equation}
+      \boxed{[\frac{\Delta{f}}{\Delta{t}}] = \frac{\$}{yr}}
+    \end{equation}
+
+    \item \textbf{Find the average ROC over [0, 0.5] and [0, 1].}
+    \paragraph{Solution} The average rate of change over the given time intervals are as follow\dots
+
+    \begin{center}
+      \begin{tabular}{||c c c c | c||}
+      \hline
+      \(t_{1}\) & \(f(t_{1})\) & \(t_{2}\) & \(f(t_{2})\) & \(\overline{ROC}\) \\
+      \hline\hline
+      0 yrs. & \$100.00 & 0.5 yrs. & \$103.92 & 7.85 \(\frac{\$}{yr}\) \\
+      \hline
+      0 yrs. & \$100.00 & 1 yr. & \$108.00 & 8 \(\frac{\$}{yr}\) \\
+      \hline
+      \end{tabular}
+    \end{center}
+
+    \item \textbf{Estimate the instantaneous rate of change at \(t=0.5\) by computing the average ROC over intervals to the left and right of \(t=0.5\).}
+
+    \paragraph{Solution} We'll compute the average rate of change of \(f(t)\) for \(t\) in the intervals [0, 0.5] and [0.5, 1], then average those out to estimate the instantaneous rate of change.
+
+    \begin{center}
+      \begin{tabular}{||c c c c | c||}
+      \hline
+      \(t_{1}\) & \(f(t_{1})\) & \(t_{2}\) & \(f(t_{2})\) & \(\overline{ROC}\) \\
+      \hline\hline
+      0 yrs. & \$100.00 & 0.5 yrs. & \$103.92 & 7.85 \(\frac{\$}{yr}\) \\
+      \hline
+      0.5 yrs. & \$103.92 & 1 yr. & \$108.00 & 8.15 \(\frac{\$}{yr}\) \\
+      \hline
+      \end{tabular}
+    \end{center}
+
+    The average between the rates of change of the two intervals is\dots
+
+    \begin{equation}
+      \frac{7.85 + 8.15}{2} = \boxed{8 \frac{\$}{yr}}
+    \end{equation}
+  \end{enumerate}
+\end{document}
