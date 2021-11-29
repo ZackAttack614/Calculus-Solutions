@@ -186,4 +186,84 @@ Limits, Rates of Change, and Tangent Lines}
       \frac{7.85 + 8.15}{2} = \boxed{8 \frac{\$}{yr}}
     \end{equation}
   \end{enumerate}
+  \newpage
+
+  \section{Problem 8}
+  \paragraph{Problem Statement} The distance traveled by a particle at time \(t\) is \(s(t) = t^3 + t\). Compute the average velocity over the time interval [1, 4] and estimate the instantaneous velocity at \(t=1\).
+
+  \paragraph{Solution} The average velocity over the interval [1, 4] is simply the slope of the secant line going through \((1, s(1)) \) and \( (4, s(4)) \).
+
+  \begin{equation}
+    \overline{v} = \frac{s(4) - s(1)}{4-1} = \frac{(4^3 + 4) - (1^3 + 1)}{4-1} = \frac{66}{3} = \boxed{22}
+  \end{equation}
+
+  To estimate the instantaneous velocity of the particle at \(t=1\), we'll find the slope of the secant line going through \((1, s(1)) \) and \( (1 + \varepsilon, s(1 + \varepsilon)) \) for some sufficiently small \(\varepsilon\). I'll choose \(\varepsilon = 0.001\).
+
+  \begin{equation}
+    \frac{\Delta{s}}{\Delta{t}} = \frac{s(1+\varepsilon)-s(1)}{(1+\varepsilon) - 1} = \frac{(1.001^3 + 1.001) - (1^3 + 1)}{0.001} = \frac{2.004003 - 2}{0.001} = \boxed{4.003}
+  \end{equation}
+
+  \includegraphics[scale=0.7]{problem_8}
+  \newpage
+
+  \section{Problem 9}
+  \paragraph{Problem Statement} Estimate the instantaneous rate of change of \(P(x) = 4x^2 - 3\) at \(x=2\).
+
+  \paragraph{Solution} To estimate the instantaneous rate of change of \(P(x) = 4x^2 - 3\) at \(x=2\), we'll find the slope of the secant line going through \((2, P(2)) \) and \( (2 + \varepsilon, P(2 + \varepsilon)) \) for some sufficiently small \(\varepsilon\). I'll choose \(\varepsilon = 0.001\).
+
+  \begin{equation}
+    \frac{\Delta{P}}{\Delta{x}} = \frac{P(2+\varepsilon)-P(2)}{(2+\varepsilon) - 2} = \frac{(4(2.001^2)-3) - (4(2^2)-3)}{0.001} \approx \boxed{16}
+  \end{equation}
+
+  \includegraphics[scale=0.7]{problem_9}
+  \newpage
+
+  \section{Problem 10}
+  \paragraph{Problem Statement} Estimate the instantaneous rate of change of \(f(t) = 3t-5\) at \(t=-9\).
+
+  \paragraph{Solution} To estimate the instantaneous rate of change of \(f(t) = 3t-5\) at \(t=-9\), we'll find the slope of the secant line going through \((-9, f(-9)) \) and \( (-9 + \varepsilon, f(-9 + \varepsilon)) \) for some sufficiently small \(\varepsilon\). I'll choose \(\varepsilon = 0.001\).
+
+  \begin{equation}
+    \frac{\Delta{f}}{\Delta{t}} = \frac{f(-9+\varepsilon)-f(-9)}{(-9+\varepsilon) - (-9)} = \frac{(3(-8.999)-5) - (3(-9)-5)}{0.001} = \boxed{3}
+  \end{equation}
+
+  \includegraphics[scale=0.7]{problem_10}
+  \newpage
+
+  \section{Problem 11}
+  \paragraph{Problem Statement} Estimate the instantaneous rate of change of \(y(x) = \frac{1}{x+2}\) at \(x=2\).
+
+  \paragraph{Solution} To estimate the instantaneous rate of change of \(y(x) = \frac{1}{x+2}\) at \(x=2\), we'll find the slope of the secant line going through \((2, y(2)) \) and \( (2 + \varepsilon, y(2 + \varepsilon)) \) for some sufficiently small \(\varepsilon\). I'll choose \(\varepsilon = 0.001\).
+
+  \begin{equation}
+    \frac{\Delta{y}}{\Delta{x}} = \frac{y(2+\varepsilon)-y(2)}{(2+\varepsilon) - 2} = \frac{\frac{1}{4.001} - \frac{1}{4}}{0.001} \approx \boxed{\frac{-1}{16}}
+  \end{equation}
+
+  \includegraphics[scale=0.7]{problem_11}
+  \newpage
+
+  \section{Problem 12}
+  \paragraph{Problem Statement} Estimate the instantaneous rate of change of \(y(t) = \sqrt{3t + 1}\) at \(t=1\).
+
+  \paragraph{Solution} To estimate the instantaneous rate of change of \(y(t) = \sqrt{3t + 1}\) at \(t=1\), we'll find the slope of the secant line going through \((1, y(1)) \) and \( (1 + \varepsilon, y(1 + \varepsilon)) \) for some sufficiently small \(\varepsilon\). I'll choose \(\varepsilon = 0.001\).
+
+  \begin{equation}
+    \frac{\Delta{y}}{\Delta{t}} = \frac{y(1+\varepsilon)-y(1)}{(1+\varepsilon) - 1} = \frac{\sqrt{3(1+0.001) + 1} - \sqrt{3(1) + 1}}{0.001} \approx \boxed{\frac{3}{4}}
+  \end{equation}
+
+  \includegraphics[scale=0.7]{problem_12}
+  \newpage
+
+  \section{Problem 13}
+  \paragraph{Problem Statement} The atmospheric temperature \(T\) (in \(^\circ\)F) above a certain point on earth is \(T=59-0.00356h\), where \(h\) is the altitude in feet (valid for \(h \ge 37,000\)). What are the average and instantaneous rates of change of \(T\) with respect to \(h\)? Why are they the same? Sketch the graph of \(T\) for \(h \ge 37,000\).
+
+  \paragraph{Solution} Note that the equation for \(T\) is linear with respect to \(h\), and so all tangent lines to \(T(h)\) are actually \textit{equal} to the equation \(T(h)\). Thus, it has the same slope as \(T(h)\), which is its rate of change. It is also \textit{constant} for all \(h\).
+
+  \begin{equation}
+    \overline{ROC} = \boxed{-0.00356}
+  \end{equation}
+  \begin{equation}
+    \frac{\Delta{T}}{\Delta{h}} = \boxed{-0.00356}
+  \end{equation}
+  \includegraphics[scale=0.7]{problem_13}
 \end{document}
